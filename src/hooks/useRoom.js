@@ -48,18 +48,46 @@ export function useRoom() {
       .channel(`room-${code}`)
       .on(
         'postgres_changes',
-        { event: 'UPDATE', schema: 'public', table: 'empire_rooms', filter: `code=eq.${code}` },
+        { event: '*', schema: 'public', table: 'empire_rooms', filter: `code=eq.${code}` },
         (payload) => {
           setRoom(payload.new)
         }
       )
-      .subscribe()
+      .subscribe(async (status) => {
+        if (status === 'SUBSCRIBED') {
+          // Fetch latest room state immediately after subscribing
+          const { data } = await supabase
+            .from('empire_rooms')
+            .select('*')
+            .eq('code', code)
+            .single()
+          if (data) setRoom(data)
+        }
+      })
 
     channelRef.current = ch
+
+    // Poll every 3 seconds as backup in case realtime misses events
+    const pollInterval = setInterval(async () => {
+      const { data } = await supabase
+        .from('empire_rooms')
+        .select('*')
+        .eq('code', code)
+        .single()
+      if (data) setRoom(data)
+    }, 3000)
+
+    // Store interval so we can clear it on unsubscribe
+    channelRef.current._pollInterval = pollInterval
   }, [])
 
   useEffect(() => {
-    return () => { channelRef.current?.unsubscribe() }
+    return () => {
+      if (channelRef.current?._pollInterval) {
+        clearInterval(channelRef.current._pollInterval)
+      }
+      channelRef.current?.unsubscribe()
+    }
   }, [])
 
   // ── Auto-join from URL param ───────────────────────────────────────────────
