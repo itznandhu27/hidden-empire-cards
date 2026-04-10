@@ -1,0 +1,50 @@
+.wrap {
+  width: 100%;
+  max-width: 440px;
+  margin-top: 16px;
+}
+
+.roundPicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pickerLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.roundBtn {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid var(--border-gold);
+  background: var(--surface);
+  color: var(--text-dim);
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+
+.roundBtn.active {
+  background: rgba(201,168,76,0.15);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: -4px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}

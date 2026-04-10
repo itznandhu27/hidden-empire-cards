@@ -1,0 +1,36 @@
+.ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 20px auto;
+  flex-shrink: 0;
+}
+
+.svg { transform: rotate(-90deg); display: block; }
+
+.track { fill: none; stroke: var(--surface2); stroke-width: 8; }
+
+.fill {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear, stroke 0.4s;
+}
+
+.fill.urgent { stroke: #E74C3C; }
+
+.number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold-light);
+  transition: color 0.4s;
+}
+
+.urgentText { color: #E74C3C; }

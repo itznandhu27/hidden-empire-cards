@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #F0D080;
+  --gold-dim: #7A6030;
+  --bg: #0A0806;
+  --bg2: #120E08;
+  --bg3: #1C1610;
+  --surface: #1E1A12;
+  --surface2: #2A2418;
+  --border: #3A3020;
+  --border-gold: #5A4A28;
+  --text: #E8DCC8;
+  --text-dim: #9A8870;
+  --red: #C0392B;
+  --green: #27AE60;
+  --blue: #2980B9;
+  touch-action: manipulation;
+}
+
+html {
+  height: 100%;
+  background: var(--bg);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border-gold); border-radius: 2px; }

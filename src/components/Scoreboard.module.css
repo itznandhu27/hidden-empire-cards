@@ -1,0 +1,108 @@
+.list { width: 100%; }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  animation: slideIn 0.35s ease backwards;
+  transition: border-color 0.3s;
+}
+
+.item.first { border-color: var(--gold-dim); }
+
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.rank {
+  font-size: 20px;
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.rank0 { font-size: 22px; }
+.rank1 { font-size: 20px; }
+.rank2 { font-size: 20px; }
+
+.name {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.score {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.delta {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.pos { background: rgba(39,174,96,0.18); color: #2ecc71; }
+.neg { background: rgba(192,57,43,0.18); color: #e74c3c; }
+
+/* Reveal list */
+.revealItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  animation: slideIn 0.35s ease backwards;
+}
+
+.revealEmoji { font-size: 26px; width: 36px; text-align: center; flex-shrink: 0; }
+.revealName  { font-family: 'Cinzel', serif; font-size: 14px; flex: 1; }
+.revealRole  { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1px; }
+
+/* Titles */
+.titleList { width: 100%; }
+
+.titleBadge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  animation: slideIn 0.4s ease backwards;
+}
+
+.titleEmoji { font-size: 30px; }
+
+.titleInfo { flex: 1; }
+
+.titleLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.titlePlayer {
+  font-size: 15px;
+  color: var(--text);
+}

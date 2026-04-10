@@ -1,0 +1,224 @@
+.screen {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 48px;
+}
+.screen.center {
+  justify-content: center;
+}
+
+/* ── LOGO ── */
+.logo { text-align: center; margin-bottom: 8px; }
+.ornament { color: var(--gold-dim); font-size: 14px; letter-spacing: 6px; }
+.logoDivider {
+  width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 8px auto;
+}
+.logoTitle {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(20px, 6vw, 32px);
+  font-weight: 900;
+  background: linear-gradient(135deg, #8A6820 0%, #C9A84C 30%, #F0D080 50%, #C9A84C 70%, #8A6820 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+.logoSub {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── PANEL ── */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+}
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.panelTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ── INPUT ── */
+.input {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 12px;
+  display: block;
+}
+.input:focus { border-color: var(--gold-dim); }
+.input::placeholder { color: var(--text-dim); }
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+  line-height: 1;
+}
+.fullWidth { width: 100%; }
+.btn_gold {
+  background: linear-gradient(135deg, #7A5C20, #C9A84C, #F0D080, #C9A84C, #7A5C20);
+  background-size: 200% 100%;
+  color: #1A1200;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+}
+.btn_gold:hover:not(:disabled) {
+  background-position: right center;
+  box-shadow: 0 4px 30px rgba(201,168,76,0.45);
+}
+.btn_ghost {
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
+}
+.btn_ghost:hover:not(:disabled) { background: rgba(201,168,76,0.08); }
+.btn_danger {
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.4);
+  color: #E74C3C;
+}
+.btn_blue {
+  background: rgba(41,128,185,0.15);
+  border: 1px solid rgba(41,128,185,0.4);
+  color: #7FB3D3;
+}
+.btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+/* ── MISC ── */
+.sectionTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 20px 0 12px;
+  width: 100%;
+  max-width: 440px;
+}
+.tag {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+}
+.errorMsg {
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.35);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #E74C3C;
+  margin-bottom: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 440px;
+}
+.waitingPulse {
+  color: var(--text-dim);
+  font-style: italic;
+  text-align: center;
+  animation: pulse 2s ease-in-out infinite;
+  font-size: 16px;
+  padding: 8px 0;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 440px;
+}
+.dividerLine { flex: 1; height: 1px; background: var(--border); }
+.dividerLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.roomCode {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 10px;
+  color: var(--gold-light);
+  text-align: center;
+  padding: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 440px;
+  word-break: break-all;
+}
+
+.progressBar {
+  height: 3px;
+  background: var(--bg3);
+  border-radius: 2px;
+  margin: 4px 0 16px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}

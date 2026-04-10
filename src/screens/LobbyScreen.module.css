@@ -1,0 +1,12 @@
+.wrap {
+  width: 100%;
+  max-width: 440px;
+  margin-top: 8px;
+}
+
+.shareRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  width: 100%;
+}
